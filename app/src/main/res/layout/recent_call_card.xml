@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardUseCompatPadding="true"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/colorLighterBg">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <com.magnetimarelli.aecall.view.CircularView
+            android:id="@+id/caller_image_view"
+            android:layout_height="@dimen/text_size_large_circle"
+            android:layout_width="@dimen/text_size_large_circle"
+            android:src="@drawable/ic_blue_avtar"
+            android:visibility="gone" />
+        <FrameLayout
+            android:id="@+id/caller_name_image"
+            android:foregroundGravity="center"
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/text_size_large_circle"
+            android:layout_height="@dimen/text_size_large_circle"
+            android:background="@drawable/circular_ring">
+            <TextView
+                android:id="@+id/caller_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="M"
+                android:textColor="@color/midnightBlue"
+                android:textSize="@dimen/text_size_Large" />
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/contact_info"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="left|center_vertical"
+                android:layout_weight="1"
+                android:text="My Number"
+                android:textColor="@color/ringColor"/>
+            <TextView
+                android:id="@+id/call_info"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:textColor="@color/ringColorAlpha"
+                android:text="Mobile, May 3"
+                android:drawablePadding="6dp"
+                android:drawableLeft="@drawable/ic_imcoming_call_icon"/>
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_phone_call_black_icon"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

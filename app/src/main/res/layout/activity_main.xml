@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.magnetimarelli.aecall.activity.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="#ffffff"
+        android:theme="?attr/actionBarTheme"
+        android:gravity="center"
+        android:elevation="1dip"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+        <ImageView
+            android:id="@+id/tv_header_title"
+            android:layout_width="@dimen/toolbar_height"
+            android:layout_height="@dimen/toolbar_height"
+            android:padding="8dp"
+            android:layout_gravity="left|center_vertical"
+            android:src="@drawable/ic_incoming_call_icon" />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Incoming call.."
+            android:layout_marginLeft="25dp"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_small"/>
+        </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3">
+
+        <View
+            android:id="@+id/imageViewLogo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:background="@drawable/automation_logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/caller_details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/first_name_caller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My"
+                        android:textColor="#355c7d"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/text_size_small" />
+                    <TextView
+                        android:id="@+id/last_name_caller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Name"
+                        android:textColor="#355c7d"
+                        android:textSize="@dimen/text_size_small"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/first_name_caller"/>
+                </RelativeLayout>
+
+                <com.magnetimarelli.aecall.view.CircularView
+                    android:id="@+id/caller_image_view"
+                    android:layout_height="@dimen/caller_image_height"
+                    android:layout_width="@dimen/caller_image_height"
+                    android:src="@drawable/ic_avtar"
+                    android:visibility="gone" />
+                <FrameLayout
+                    android:id="@+id/caller_name_image"
+                    android:foregroundGravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_width="@dimen/caller_image_height"
+                    android:layout_height="@dimen/caller_image_height"
+                    android:background="@drawable/circular_view">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textColor="#f67280"
+                        android:textSize="@dimen/text_size_Large" />
+                </FrameLayout>
+                <TextView
+                    android:id="@+id/contact_number_textview"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:text="+9019665439"
+                    android:textColor="#355c7d"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/action_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:id="@+id/accept_view"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="53dp"
+                    android:layout_marginRight="53dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <ImageButton
+                        android:id="@+id/imageButton6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        app:srcCompat="@drawable/circle_shape" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:src="@drawable/ic_accept_call" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/reject_view"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.341"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/accept_view"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        app:srcCompat="@drawable/circle_red" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="15dp"
+                        android:src="@drawable/ic_reject_call" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="Receive"
+                    android:textColor="#00ff00"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.562"
+                    app:layout_constraintLeft_toLeftOf="@+id/accept_view"
+                    app:layout_constraintRight_toRightOf="@+id/accept_view"
+                    app:layout_constraintTop_toBottomOf="@+id/accept_view"
+                    app:layout_constraintVertical_bias="0.111" />
+
+                <TextView
+                    android:id="@+id/text_reject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="Reject"
+                    android:textColor="#ff0000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.44"
+                    app:layout_constraintLeft_toLeftOf="@+id/reject_view"
+                    app:layout_constraintRight_toRightOf="@+id/reject_view"
+                    app:layout_constraintTop_toBottomOf="@+id/reject_view"
+                    app:layout_constraintVertical_bias="0.111" />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

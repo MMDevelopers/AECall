@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorGreen">#25B066</color>
+    <color name="tabRelated">#2298D4</color>
+    <color name="tabColors">#D80027</color>
+    <color name="ringColor">#001223</color>
+    <color name="ringColorAlpha">#cc001223</color>
+    <color name="colorLighterBg">#F4F4F1</color>
+    <color name="midnightBlue">#210074</color>
+</resources>

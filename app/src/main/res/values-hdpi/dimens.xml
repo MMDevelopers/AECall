@@ -1,0 +1,21 @@
+﻿<resources>
+    <dimen name="text_size_small">14dp</dimen>
+    <dimen name="text_size_Large">42dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="speed_gauge_dimens">300dp</dimen>
+    <dimen name="speed_gauge_tick_pad">50dp</dimen>
+    <dimen name="RPM_gauge_dimens">150dp</dimen>
+    <dimen name="RPM_gauge_tick_pad">25dp</dimen>
+    <dimen name="Fuel_gauge_tick_pad">20dp</dimen>
+    <dimen name="item_height_nlog">40dp</dimen>
+    <dimen name="bottom_tool_height">70dp</dimen>
+    <dimen name="button_height">50dp</dimen>
+    <dimen name="caller_image_height">80dp</dimen>
+    <dimen name="toolbar_height">40dp</dimen>
+    <dimen name="text_size_small1">10dp</dimen>
+    <dimen name="text_size_medium1">20dp</dimen>
+    <dimen name="text_size_large1">30dp</dimen>
+    <dimen name="text_size_large_circle">55dp</dimen>
+    <dimen name="tab_text_size">12sp</dimen>
+</resources>
