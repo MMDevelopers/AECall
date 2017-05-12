@@ -110,7 +110,7 @@ public class DialerTabActivity extends AppCompatActivity {
 
     public void getContactsPerm() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED || checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED || checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)) {
-            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS,Manifest.permission.READ_CALL_LOG,Manifest.permission.CALL_PHONE}, PERMISSIONS_REQUEST_READ_CONTACTS_ALL);
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS,Manifest.permission.READ_CALL_LOG,Manifest.permission.CALL_PHONE,Manifest.permission.READ_PHONE_STATE}, PERMISSIONS_REQUEST_READ_CONTACTS_ALL);
         } else {
             new ContactOperation().execute("");
         }

@@ -3,6 +3,7 @@ package com.magnetimarelli.aecall.broadcast;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.content.WakefulBroadcastReceiver;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -53,6 +54,8 @@ public class WakeUpFromBroadcast extends WakefulBroadcastReceiver {
                     }
                     case TelephonyManager.CALL_STATE_IDLE: {
                         //idea.
+                        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(contex);
+                        localBroadcastManager.sendBroadcast(new Intent("com.durga.action.close"));
                         completeWakefulIntent(service);
                         break;
                     }

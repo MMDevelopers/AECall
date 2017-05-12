@@ -153,12 +153,13 @@
                         android:id="@+id/imageButton6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
+                        android:background="?attr/selectableItemBackgroundBorderless"
                         app:srcCompat="@drawable/circle_shape" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:clickable="false"
                         android:layout_margin="20dp"
                         android:src="@drawable/ic_accept_call" />
                 </RelativeLayout>
@@ -183,12 +184,13 @@
                         android:id="@+id/imageButton5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
+                        android:background="?attr/selectableItemBackgroundBorderless"
                         app:srcCompat="@drawable/circle_red" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:clickable="false"
                         android:layout_margin="15dp"
                         android:src="@drawable/ic_reject_call" />
                 </RelativeLayout>
