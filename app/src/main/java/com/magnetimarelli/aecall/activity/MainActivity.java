@@ -1,6 +1,7 @@
 package com.magnetimarelli.aecall.activity;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("ACTIVITY","ONCreate");
         setContentView(R.layout.activity_main);
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         acceptCall = (ImageButton)findViewById(R.id.imageButton6);
@@ -87,7 +89,16 @@ public class MainActivity extends AppCompatActivity {
         acceptCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                try {
+                    Runtime.getRuntime().exec("input keyevent " + Integer.toString(KeyEvent.KEYCODE_HEADSETHOOK));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+//                try {
+//                    telephonyService.answerRingingCall();
+//                } catch (RemoteException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
 
@@ -143,6 +154,27 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("ACTIVITY_STATE","PAUSED");
+        Intent it = new Intent("intent.my.action");
+        it.setComponent(new ComponentName(getPackageName(), MainActivity.class.getName()));
+        it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getApplicationContext().startActivity(it);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("ACTIVITY_STATE","STOP");
+        Intent it = new Intent("intent.my.action");
+        it.setComponent(new ComponentName(getPackageName(), MainActivity.class.getName()));
+        it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getApplicationContext().startActivity(it);
+    }
+
 
     private void broadcastHeadsetConnected(boolean connected) {
         Intent i = new Intent(Intent.ACTION_HEADSET_PLUG);

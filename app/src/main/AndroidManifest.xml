@@ -20,6 +20,10 @@
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="intent.my.action" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <receiver android:name=".broadcast.WakeUpFromBroadcast">
             <intent-filter>

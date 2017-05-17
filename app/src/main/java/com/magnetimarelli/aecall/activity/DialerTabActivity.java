@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.magnetimarelli.aecall.R;
 import com.magnetimarelli.aecall.adaptor.PageAdaptor;
@@ -50,6 +51,7 @@ public class DialerTabActivity extends AppCompatActivity {
     public static Map<String, RecentCallModel> logModelMap = new HashMap<String, RecentCallModel>();
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS_ALL = 101;
+    private static final int PERMISSIONS_REQUEST_MODIFY_PHONE_STATE = 6544;
     private PageAdaptor lAdapter = null;
     MyTimerTask myTask = new MyTimerTask();
     Timer myTimer = new Timer();
@@ -57,6 +59,7 @@ public class DialerTabActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialer_tab);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         mTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
@@ -91,6 +94,7 @@ public class DialerTabActivity extends AppCompatActivity {
         myTimer.schedule(myTask, 1000, 500);
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -104,6 +108,11 @@ public class DialerTabActivity extends AppCompatActivity {
         if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS_ALL) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 new ContactOperation().execute("");
+            }
+        }
+        if (requestCode == PERMISSIONS_REQUEST_MODIFY_PHONE_STATE) {
+            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this,"Can not accept call without this permisson",Toast.LENGTH_LONG).show();;
             }
         }
     }

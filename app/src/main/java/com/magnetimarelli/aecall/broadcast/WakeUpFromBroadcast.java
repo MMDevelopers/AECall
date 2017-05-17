@@ -15,6 +15,9 @@ import com.magnetimarelli.aecall.service.WakeUpService;
 public class WakeUpFromBroadcast extends WakefulBroadcastReceiver {
     Context contex = null;
     Intent service = null;
+    static long lastCall = 0;
+    long receiveCall = 0;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         this.contex = context;
@@ -40,8 +43,15 @@ public class WakeUpFromBroadcast extends WakefulBroadcastReceiver {
                             //incoming call
 
                             // Start the service, keeping the device awake while it is launching.
-                            Log.i("SimpleWakefulReceiver", "Starting service @ " + SystemClock.elapsedRealtime());
-                            startWakefulService(contex, service);
+                            long CallTime = System.currentTimeMillis();
+                            Log.d("CALLTIME","T:"+CallTime+" : "+(CallTime-lastCall) );
+
+                            if(CallTime-lastCall>1000) {
+                                Log.i("SimpleWakefulReceiver", "Starting service @ " + SystemClock.elapsedRealtime());
+                                startWakefulService(contex, service);
+                                lastCall = CallTime;
+                            }
+
                         }
                         break;
                     }
