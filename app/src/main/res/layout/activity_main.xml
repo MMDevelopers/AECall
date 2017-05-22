@@ -25,6 +25,7 @@
             android:layout_gravity="left|center_vertical"
             android:src="@drawable/ic_incoming_call_icon" />
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -49,7 +50,7 @@
             android:id="@+id/imageViewLogo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="7"
+            android:layout_weight="5"
             android:background="@drawable/automation_logo" />
 
         <LinearLayout
@@ -68,7 +69,9 @@
                 android:gravity="center"
                 android:orientation="horizontal">
                 <RelativeLayout
+                    android:id="@+id/caller_full_name"
                     android:layout_width="0dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:layout_gravity="center"
@@ -79,12 +82,19 @@
                         android:layout_height="wrap_content"
                         android:text="My"
                         android:textColor="#355c7d"
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_centerInParent="true"
                         android:textSize="@dimen/text_size_small" />
                     <TextView
                         android:id="@+id/last_name_caller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:gravity="center"
                         android:text="Name"
                         android:textColor="#355c7d"
@@ -96,6 +106,7 @@
                 <com.magnetimarelli.aecall.view.CircularView
                     android:id="@+id/caller_image_view"
                     android:layout_height="@dimen/caller_image_height"
+                    android:layout_margin="10dp"
                     android:layout_width="@dimen/caller_image_height"
                     android:src="@drawable/ic_avtar"
                     android:visibility="gone" />
@@ -103,11 +114,13 @@
                     android:id="@+id/caller_name_image"
                     android:foregroundGravity="center"
                     android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
                     android:layout_width="@dimen/caller_image_height"
                     android:layout_height="@dimen/caller_image_height"
                     android:background="@drawable/circular_view">
 
                     <TextView
+                        android:id="@+id/caller_name_text_F"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -118,12 +131,12 @@
                 <TextView
                     android:id="@+id/contact_number_textview"
                     android:layout_width="0dp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_margin="4dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:layout_weight="3"
-                    android:text="+9019665439"
+                    android:text=".."
                     android:textColor="#355c7d"
                     android:textSize="@dimen/text_size_small" />
             </LinearLayout>
@@ -133,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_weight="1">
+                android:layout_weight="1.2">
 
                 <RelativeLayout
                     android:id="@+id/accept_view"
@@ -234,6 +247,64 @@
                     app:layout_constraintRight_toRightOf="@+id/reject_view"
                     app:layout_constraintTop_toBottomOf="@+id/reject_view"
                     app:layout_constraintVertical_bias="0.111" />
+            </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/action_reject_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:layout_weight="1.2">
+
+                <RelativeLayout
+                    android:id="@+id/hangup_call_view"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:elevation="5dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp">
+
+                    <ImageButton
+                        android:id="@+id/imageButton9"
+                        android:layout_width="match_parent"
+                        android:clickable="false"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:srcCompat="@drawable/circle_red" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:layout_margin="20dp"
+                        android:src="@drawable/ic_reject_call" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/hangup_call_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:text="Hang Up"
+                    android:textColor="#ff0000"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.501"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintTop_toBottomOf="@+id/hangup_call_view" />
+
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </LinearLayout>

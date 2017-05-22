@@ -1,7 +1,10 @@
 package com.magnetimarelli.aecall.activity;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -13,6 +16,7 @@ import android.os.Build;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -38,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -61,6 +66,18 @@ public class DialerTabActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dialer_tab);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+
+
+        ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningServiceInfo> runningAppProcessInfo = am.getRunningServices(1000);
+
+        for (int i = 0; i < runningAppProcessInfo.size(); i++) {
+            Log.d("WakeUpService",runningAppProcessInfo.get(i).process+ "\t\t ID: "+runningAppProcessInfo.get(i).service+"");
+//            if(runningAppProcessInfo.get(i).processName.equals("com.the.app.you.are.looking.for")) {
+//                // Do your stuff here.
+//            }
+        }
+
         // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         mTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         mTabLayout.addTab(mTabLayout.newTab().setText("Dial"));
@@ -92,6 +109,9 @@ public class DialerTabActivity extends AppCompatActivity {
         myTask = new MyTimerTask();
         myTimer = new Timer();
         myTimer.schedule(myTask, 1000, 500);
+
+//        Intent intents = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+//        startActivity(intents);
     }
 
 
