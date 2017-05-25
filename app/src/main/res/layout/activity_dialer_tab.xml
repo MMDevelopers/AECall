@@ -27,5 +27,4 @@
         app:tabTextColor="@color/tabRelated"
         style="@style/MyCustomTabLayout"
         />
-
 </LinearLayout>
